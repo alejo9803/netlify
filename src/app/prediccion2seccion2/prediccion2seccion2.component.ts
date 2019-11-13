@@ -171,21 +171,7 @@ export class Prediccion2seccion2Component implements OnInit {
   }
 
   
-  prediccion(){
-    var contador
-    for(var i=0; i<this.preguntas.length;i++){
-      if(this.preguntas[i]==1){
-        contador=contador+1;
-      }
-    }
-    if(contador>3){
-      var="según lo que nos manifiestas padeces un estado de depresión."
-    }
-    else{
-      var="segun lo que nos manifiestas no sufres aparentemente de"
-    }
-    
-  }
+  
 
   
 

@@ -19,30 +19,48 @@ export class AdminService{
     constructor(private http:Http){}
 
     getPreguntas(i:number): Promise<Pregunta> {
-        var resultado = this.http.get('http://localhost:8000/pregunta/'+i+'?format=json', {headers: this.headers}).toPromise()
+        var resultado = this.http.get('http://proyectopredictmind.herokuapp.com/pregunta/'+i+'?format=json', {headers: this.headers}).toPromise()
         .then(response=> response.json() as Pregunta)        
         return resultado
     }
 
     getPaciente(i:number): Promise<Paciente> {
-        var resultado = this.http.get('http://localhost:8000/paciente/'+i+'?format=json', {headers: this.headers})
+        var resultado = this.http.get('http://proyectopredictmind.herokuapp.com/paciente/'+i+'?format=json', {headers: this.headers})
         .toPromise()
         .then(response=> response.json() as Paciente)
         
         return resultado
     }
 
+    getPacientes(): Promise<Paciente[]>{
+        return this.http.get('http://proyectopredictmind.herokuapp.com/paciente?format=json', {headers: this.headers})
+        .toPromise()
+        .then(response => response.json() as Paciente[])
+    }
+
+    getPsicologos(): Promise<Psicologo[]>{
+        return this.http.get('http://proyectopredictmind.herokuapp.com/psicologo?format=json', {headers: this.headers})
+        .toPromise()
+        .then(response => response.json() as Psicologo[])
+    }
+
     getPsicologo(i:number): Promise<Psicologo> {
-        var resultado = this.http.get('http://localhost:8000/psicologo/'+i+'?format=json', {headers: this.headers})
+        var resultado = this.http.get('http://proyectopredictmind.herokuapp.com/psicologo/'+i+'?format=json', {headers: this.headers})
         .toPromise()
         .then(response=> response.json() as Psicologo)
         
         return resultado
     }
 
+    getPreguntas_Paciente(): Promise<Pregunta_Paciente[]>{
+        return this.http.get('http://proyectopredictmind.herokuapp.com/pregunta_paciente?format=json', {headers: this.headers})
+        .toPromise()
+        .then(response => response.json() as Pregunta_Paciente[])
+    }
+
     createPregunta_Paciente(p: Pregunta_Paciente): Promise<Pregunta_Paciente>{
         return this.http
-        .post("http://localhost:8000/pregunta_paciente", JSON.stringify(p), {headers: this.headers})
+        .post("http://proyectopredictmind.herokuapp.com/pregunta_paciente", JSON.stringify(p), {headers: this.headers})
         .toPromise()
         .then(response => response.json() as Pregunta_Paciente)
 
@@ -50,14 +68,14 @@ export class AdminService{
 
     createHistoria(h: Historia): Promise<Historia>{
         return this.http
-        .post("http://localhost:8000/historia", JSON.stringify(h), {headers: this.headers})
+        .post("http://proyectopredictmind.herokuapp.com/historia", JSON.stringify(h), {headers: this.headers})
         .toPromise()
         .then(response => response.json() as Historia)
 
     }
 
     getContador():Promise<Contador>{
-        var resultado=this.http.get('http://localhost:8000/contador/1?format=json', {headers:this.headers})
+        var resultado=this.http.get('http://proyectopredictmind.herokuapp.com/contador/1?format=json', {headers:this.headers})
         .toPromise()
         .then(response=>response.json() as Contador)
 
@@ -65,7 +83,7 @@ export class AdminService{
     }
 
     updateContador(contador:Contador):Promise<Contador>{
-        var resultado=this.http.put('http://localhost:8000/contador/1?format=json', contador, {headers:this.headers})
+        var resultado=this.http.put('http://proyectopredictmind.herokuapp.com/contador/1?format=json', contador, {headers:this.headers})
         .toPromise()
         .then(response => response.json() as Contador)
 

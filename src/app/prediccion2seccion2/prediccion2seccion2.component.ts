@@ -20,7 +20,7 @@ export class Prediccion2seccion2Component implements OnInit {
   constructor(private router: Router, private AdminService:AdminService ) {
     
     this.createHistoria();
-    
+   
     
   }
 
@@ -32,7 +32,7 @@ export class Prediccion2seccion2Component implements OnInit {
     localStorage.removeItem('email');
     this.router.navigate(['']);
   }
-
+  
   createPregunta_Paciente(): void{
     var pregunta= new Pregunta_Paciente()
     var paciente= parseInt(localStorage.getItem('email'))
@@ -43,7 +43,7 @@ export class Prediccion2seccion2Component implements OnInit {
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+1
         pregunta.idHistoria=data.contadorHistorias
         pregunta.idPaciente=paciente;
-        pregunta.idPregunta=8;
+        pregunta.idPregunta=2;
         if(respuesta1==="1"){
           pregunta.respuesta='Si';
         }
@@ -58,7 +58,7 @@ export class Prediccion2seccion2Component implements OnInit {
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+2
         pregunta.idHistoria=data.contadorHistorias
         pregunta.idPaciente=paciente;
-        pregunta.idPregunta=9;
+        pregunta.idPregunta=3;
         if(respuesta2==="1"){
           pregunta.respuesta='Si';
         }
@@ -73,7 +73,7 @@ export class Prediccion2seccion2Component implements OnInit {
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+3
         pregunta.idHistoria=data.contadorHistorias
         pregunta.idPaciente=paciente;
-        pregunta.idPregunta=10;
+        pregunta.idPregunta=4;
         if(respuesta3==="1"){
           pregunta.respuesta='Si';
         }
@@ -88,7 +88,7 @@ export class Prediccion2seccion2Component implements OnInit {
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+4
         pregunta.idHistoria=data.contadorHistorias
         pregunta.idPaciente=paciente;
-        pregunta.idPregunta=11;
+        pregunta.idPregunta=5;
         if(respuesta4==="1"){
           pregunta.respuesta='Si';
         }
@@ -103,7 +103,7 @@ export class Prediccion2seccion2Component implements OnInit {
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+5
         pregunta.idHistoria=data.contadorHistorias
         pregunta.idPaciente=paciente;
-        pregunta.idPregunta=12;
+        pregunta.idPregunta=6;
         if(respuesta5==="1"){
           pregunta.respuesta='Si';
         }
@@ -118,7 +118,7 @@ export class Prediccion2seccion2Component implements OnInit {
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+6
         pregunta.idHistoria=data.contadorHistorias
         pregunta.idPaciente=paciente;
-        pregunta.idPregunta=13;
+        pregunta.idPregunta=7;
         if(respuesta6==="1"){
           pregunta.respuesta='Si';
         }

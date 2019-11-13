@@ -8,15 +8,18 @@
             </mat-toolbar>
             <div td-sidenav-content>
 <mat-nav-list>
+    <form (ngSubmit)= usuario()>
     <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
-        <a mat-list-item [routerLink]="[item.route]"
+        <button  mat-list-item [routerLink]="[item.route,'yo']"
                          [routerLinkActive]="['active']"
                          [routerLink]="">
+                         
 
                          <mat-icon class="tc-blue-grey-700">{{item.icon}}</mat-icon>
                          {{item.title}}
-                        </a>
+        </button>
     </ng-template>
+</form>
 </mat-nav-list>
 
             </div>

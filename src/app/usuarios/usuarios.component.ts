@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
@@ -16,9 +17,14 @@ export class UsuariosComponent implements OnInit {
 }
 
   ]
-  constructor() { }
+  constructor(private rutaActiva: ActivatedRoute) {
+    this.getHistorias()
+   }
 
   ngOnInit() {
   }
 
+  getHistorias(){
+    console.log(this.rutaActiva.snapshot.params)
+  }
 }

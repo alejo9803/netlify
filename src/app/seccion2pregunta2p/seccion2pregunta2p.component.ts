@@ -9,7 +9,9 @@ import { AdminService } from '../service/AdminService'
 })
 export class Seccion2pregunta2pComponent implements OnInit {
 
-  constructor(private router: Router, private AdminService:AdminService) { }
+  constructor(private router: Router, private AdminService:AdminService) { 
+    this.getPregunta();
+  }
 
   ngOnInit() {
   }

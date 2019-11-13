@@ -8,7 +8,9 @@ import { AdminService } from '../service/AdminService'
   styleUrls: ['./seccion2pregunta3p.component.css']
 })
 export class Seccion2pregunta3pComponent implements OnInit {
-  constructor(private router: Router, private AdminService: AdminService) { }
+  constructor(private router: Router, private AdminService: AdminService) { 
+    this.getPregunta();
+  }
 
   ngOnInit() {
   }

@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
     for(var i=0; i<this.pacientes.length;i++){
       if(form.value.password==this.pacientes[i].idPaciente && form.value.identificacion===this.pacientes[i].nombre){
         localStorage.setItem('email',form.value.password)
-        console.log('oe');
-        this.router.navigate(['/psicologo']);
+        
+        this.router.navigate(['/introduccion']);
         
       }
       else{
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         for(var j=0; j<this.psicologos.length;j++){
           if(form.value.password==this.psicologos[j].idPsicologo && form.value.identificacion===this.psicologos[j].nombre){
             localStorage.setItem('email',form.value.password)
-            console.log('oe1');
+            
             this.router.navigate(['/psicologo']);
             
 

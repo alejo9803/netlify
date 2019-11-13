@@ -20,6 +20,7 @@ export class Prediccion2seccion2Component implements OnInit {
   constructor(private router: Router, private AdminService:AdminService ) {
     
     this.createHistoria();
+    
    
     
   }
@@ -32,13 +33,14 @@ export class Prediccion2seccion2Component implements OnInit {
     localStorage.removeItem('email');
     this.router.navigate(['']);
   }
-  
+    preguntas:Number[]
   createPregunta_Paciente(): void{
     var pregunta= new Pregunta_Paciente()
     var paciente= parseInt(localStorage.getItem('email'))
     var admin=this.AdminService
     
       var respuesta1= localStorage.getItem('respuesta2')
+      this.preguntas.push(parseInt(localStorage.getItem('respuesta2')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+1
         pregunta.idHistoria=data.contadorHistorias
@@ -54,6 +56,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta2= localStorage.getItem('respuesta3')
+      this.preguntas.push(parseInt(localStorage.getItem('respuesta3')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+2
         pregunta.idHistoria=data.contadorHistorias
@@ -69,6 +72,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta3= localStorage.getItem('respuesta4')
+      this.preguntas.push(parseInt(localStorage.getItem('respuesta4')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+3
         pregunta.idHistoria=data.contadorHistorias
@@ -84,6 +88,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta4= localStorage.getItem('respuesta5')
+      this.preguntas.push(parseInt(localStorage.getItem('respuesta5')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+4
         pregunta.idHistoria=data.contadorHistorias
@@ -99,6 +104,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta5= localStorage.getItem('respuesta6')
+      this.preguntas.push(parseInt(localStorage.getItem('respuesta6')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+5
         pregunta.idHistoria=data.contadorHistorias
@@ -114,6 +120,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta6= localStorage.getItem('respuesta7')
+      this.preguntas.push(parseInt(localStorage.getItem('respuesta7')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+6
         pregunta.idHistoria=data.contadorHistorias
@@ -164,7 +171,21 @@ export class Prediccion2seccion2Component implements OnInit {
   }
 
   
-  
+  prediccion(){
+    var contador
+    for(var i=0; i<this.preguntas.length;i++){
+      if(this.preguntas[i]==1){
+        contador=contador+1;
+      }
+    }
+    if(contador>3){
+      var="según lo que nos manifiestas padeces un estado de depresión."
+    }
+    else{
+      var="segun lo que nos manifiestas no sufres aparentemente de"
+    }
+    
+  }
 
   
 

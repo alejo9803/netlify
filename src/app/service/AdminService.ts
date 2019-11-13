@@ -64,6 +64,13 @@ export class AdminService{
         .then(response => response.json() as Historia[])
     }
 
+    getHistoria(i:number): Promise<Historia>{
+        return this.http.get('http://proyectopredictmind.herokuapp.com/historia/'+i+'?format=json', {headers: this.headers})
+        .toPromise()
+        .then(response => response.json() as Historia)
+    }
+    
+
     createPregunta_Paciente(p: Pregunta_Paciente): Promise<Pregunta_Paciente>{
         return this.http
         .post("http://proyectopredictmind.herokuapp.com/pregunta_paciente", JSON.stringify(p), {headers: this.headers})

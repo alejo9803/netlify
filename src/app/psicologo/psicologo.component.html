@@ -9,7 +9,7 @@
             <div td-sidenav-content>
 <mat-nav-list>
     <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
-        <button  mat-list-item [routerLink]="[item.route,'yo']"
+        <button  mat-list-item [routerLink]="[item.route,item.title]"
                          [routerLinkActive]="['active']"
                          [routerLink]="">
                          

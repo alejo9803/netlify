@@ -28,7 +28,7 @@ export class PsicologoComponent implements OnInit {
     console.log(this.pacientes[i].idPaciente+'\n'+this.pacientes[i].nombre)
   if(this.pacientes[i].idPsicologo==parseInt(localStorage.getItem('email'))){
   this.routes.push( {
-    title:""+this.pacientes[i].nombre,
+    title:""+this.pacientes[i].idPaciente,
     route:'/psicologo/usuario',
     icon :'dashboard',
    }

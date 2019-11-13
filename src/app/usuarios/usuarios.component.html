@@ -9,8 +9,13 @@
                 <ng-template let-depo let-last="last" ngFor [ngForOf]="usuarios">
                     <mat-list-item>
                         <mat-icon matListAvatar>dns</mat-icon>
-                        <h3 matLine> ID: {{depo.id}}</h3>
-                        <h3 matLine> {{depo.descripcion}}</h3>
+                        <h3 matLine>  {{depo.idHistoria}}</h3>
+                        <h3 matLine> {{depo.fecha}}</h3>
+                        <h3 matLine> {{depo.psicologo}}</h3>
+                        <h3 matLine> {{depo.idPregunta_Paciente}}</h3>
+                        <h3 matLine> {{depo.nombrePaciente}}</h3>
+                        <h3 matLine> {{depo.pregunta}}</h3>
+                        <h3 matLine> {{depo.respuesta}}</h3>
                         <button mat-icon-button (click)="delete(depo)">
                     
                         </button>

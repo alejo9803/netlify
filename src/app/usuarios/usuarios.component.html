@@ -1,9 +1,9 @@
 <mat-card>
 
-        <ng-template tdLoading="depositos.list">
+        <ng-template tdLoading="usuarios.list">
             <mat-list class="will-load">
-                <div class="pad" *ngIf="depositos?.length === 0" layout="row" layout-align="center">
-                    <h3> No hay depositos para mostrar </h3>
+                <div class="pad" *ngIf="usuarios?.length === 0" layout="row" layout-align="center">
+                    <h3> No hay Usuarios para mostrar </h3>
                 </div>
     
                 <ng-template let-depo let-last="last" ngFor [ngForOf]="usuarios">
@@ -16,7 +16,6 @@
                         <h3 matLine> {{depo.nombrePaciente}}</h3>
                         <h3 matLine> {{depo.pregunta}}</h3>
                         <h3 matLine> {{depo.respuesta}}</h3>
-                        <button mat-icon-button (click)="delete(depo)">
                     
                         </button>
                     </mat-list-item>

@@ -8,7 +8,6 @@
             </mat-toolbar>
             <div td-sidenav-content>
 <mat-nav-list>
-    <form (ngSubmit)= usuario()>
     <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
         <button  mat-list-item [routerLink]="[item.route,'yo']"
                          [routerLinkActive]="['active']"
@@ -19,7 +18,6 @@
                          {{item.title}}
         </button>
     </ng-template>
-</form>
 </mat-nav-list>
 
             </div>

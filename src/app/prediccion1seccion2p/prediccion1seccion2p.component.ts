@@ -14,9 +14,10 @@ import { Paciente } from '../service/Paciente';
   styleUrls: ['./prediccion1seccion2p.component.css']
 })
 export class Prediccion1seccion2pComponent implements OnInit {
-
+  predict:string
   constructor(private router: Router, private AdminService:AdminService) { 
     this.createHistoria();
+    this.predict=this.prediccion()
   }
 
   ngOnInit() {
@@ -27,12 +28,14 @@ export class Prediccion1seccion2pComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  respuestas=new Array()
   createPregunta_Paciente(): void{
     var pregunta= new Pregunta_Paciente()
     var paciente= parseInt(localStorage.getItem('email'))
     var admin=this.AdminService
     
       var respuesta1= localStorage.getItem('respuesta2')
+      
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+1
         pregunta.idHistoria=data.contadorHistorias
@@ -48,6 +51,7 @@ export class Prediccion1seccion2pComponent implements OnInit {
       })
 
       var respuesta2= localStorage.getItem('respuesta3')
+      
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+2
         pregunta.idHistoria=data.contadorHistorias
@@ -63,6 +67,7 @@ export class Prediccion1seccion2pComponent implements OnInit {
       })
 
       var respuesta3= localStorage.getItem('respuesta4')
+      
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+3
         pregunta.idHistoria=data.contadorHistorias
@@ -78,6 +83,7 @@ export class Prediccion1seccion2pComponent implements OnInit {
       })
 
       var respuesta4= localStorage.getItem('respuesta5')
+      
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+4
         pregunta.idHistoria=data.contadorHistorias
@@ -108,6 +114,7 @@ export class Prediccion1seccion2pComponent implements OnInit {
       })
 
       var respuesta6= localStorage.getItem('respuesta7')
+
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+6
         pregunta.idHistoria=data.contadorHistorias
@@ -155,6 +162,29 @@ export class Prediccion1seccion2pComponent implements OnInit {
       })
       
       })
+  }
+
+  prediccion():string{
+    var cont=0
+    var retorno
+    for(var i=2;i<8;i++){
+      console.log(i)
+        if(localStorage.getItem('respuesta'+i)==="1"){
+          console.log(i)
+          cont=cont+1
+        }
+    }
+    
+    if(cont==6){
+      retorno="¡Has culminado el test de ansiedad!, y según lo que nos manifiestas presentas síntomas de estrés post traumático, acude a un profesional en el área."
+    }
+    else if(cont>=3){
+      retorno="¡Has culminado el test de ansiedad!, y según lo que nos manifiestas presentas síntomas de ansiedad crónica, acude a un profesional en el área."
+    }else{
+      retorno="¡Has culminado el test de ansiedad!, y según lo que nos manifiestas no se identifica algun sintoma de ansiedad"
+    }
+
+    return retorno
   }
 
 

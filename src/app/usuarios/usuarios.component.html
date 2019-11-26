@@ -1,11 +1,14 @@
-<mat-card>
 
+<mat-card>
         <ng-template tdLoading="usuarios.list">
             <mat-list class="will-load">
                 <div class="pad" *ngIf="usuarios?.length === 0" layout="row" layout-align="center">
                     <h3> No hay Usuarios para mostrar </h3>
                 </div>
-    
+                <a *ngIf="usuarios?.length !== 0" mat-fab color="White" matTooltip="Limpiar lista de historias" (click)=limpiar()>
+                    <mat-icon>delete</mat-icon>
+                </a>
+                
                 <ng-template let-depo let-last="last" ngFor [ngForOf]="usuarios">
                     <mat-list-item>
                         <mat-icon matListAvatar>dns</mat-icon>
@@ -17,13 +20,18 @@
                         <h3 matLine> {{depo.pregunta}}</h3>
                         <h3 matLine> {{depo.respuesta}}</h3>
                     
-                        </button>
+                        
                     </mat-list-item>
     
                     <mat-divider *ngIf="!last" [inset]="true"></mat-divider>
+                    
                 </ng-template>
+                
             </mat-list>
+            
         </ng-template>
     </mat-card>
+
+
     
     

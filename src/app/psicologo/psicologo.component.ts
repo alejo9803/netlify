@@ -15,6 +15,7 @@ export class PsicologoComponent implements OnInit {
    }
  routes: Object[]=[{
    title:'Usuario',
+   parametro:'',
    route:'/psicologo/usuario',
    icon:'dashboard'
  }]
@@ -28,7 +29,8 @@ export class PsicologoComponent implements OnInit {
     console.log(this.pacientes[i].idPaciente+'\n'+this.pacientes[i].nombre)
   if(this.pacientes[i].idPsicologo==parseInt(localStorage.getItem('email'))){
   this.routes.push( {
-    title:""+this.pacientes[i].idPaciente,
+    title:""+this.pacientes[i].idPaciente+"-"+this.pacientes[i].nombre,
+    parametro:""+this.pacientes[i].nombre,
     route:'/psicologo/usuario',
     icon :'dashboard',
    }
@@ -37,6 +39,11 @@ export class PsicologoComponent implements OnInit {
   }
   var a=this.routes.shift()
  }
+
+ logout(){
+  localStorage.removeItem('email');
+  this.router.navigate(['']);
+}
   ngOnInit() {
   }
 

@@ -1,15 +1,25 @@
+
+        
 <td-layout>
-    <td-layout-nav toolbarTitle="PredictMind"navigationRoute="/">
+    
+    <td-layout-nav toolbarTitle="PredictMind">
+    
         <td-layout-manage-list>
+                <div>
+                        <a href="#" (click)="logout()"> Cerrar sesión</a>
+                
+                </div>
             <mat-toolbar td-sidenav-content>
                 <mat-toolbar-row>
-                    <span>Menú</span>
+                    <span>Usuarios</span>
+                    
                     </mat-toolbar-row>
+                    
             </mat-toolbar>
             <div td-sidenav-content>
 <mat-nav-list>
     <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
-        <button  mat-list-item [routerLink]="[item.route,item.title]"
+        <button  mat-list-item [routerLink]="[item.route,item.parametro]"
                          [routerLinkActive]="['active']"
                          [routerLink]="">
                          
@@ -23,5 +33,8 @@
             </div>
             <router-outlet></router-outlet>
         </td-layout-manage-list>
+        
     </td-layout-nav>
 </td-layout>
+
+

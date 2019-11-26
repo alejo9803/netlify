@@ -16,6 +16,7 @@
   <input type="password" name="password" id="password" placeholder="Password" ngModel>
   <div align="center">
   <button type="submit" class="boton_personalizado"> Iniciar </button> 
+  <p class="invalido" *ngIf="inicioMetodo()">Nombre o contraseña invalida</p>
 </div>
   </form>
 </div>

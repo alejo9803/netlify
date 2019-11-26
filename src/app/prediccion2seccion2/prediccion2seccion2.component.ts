@@ -17,9 +17,11 @@ import { Paciente } from '../service/Paciente';
 })
 export class Prediccion2seccion2Component implements OnInit {
 
+  predict:string
   constructor(private router: Router, private AdminService:AdminService ) {
     
     this.createHistoria();
+    this.predict=this.prediccion()
     
    
     
@@ -33,6 +35,7 @@ export class Prediccion2seccion2Component implements OnInit {
     localStorage.removeItem('email');
     this.router.navigate(['']);
   }
+    respuestas=new Array()
     preguntas:Number[]
   createPregunta_Paciente(): void{
     var pregunta= new Pregunta_Paciente()
@@ -40,6 +43,7 @@ export class Prediccion2seccion2Component implements OnInit {
     var admin=this.AdminService
     
       var respuesta1= localStorage.getItem('respuesta2')
+      
       this.preguntas.push(parseInt(localStorage.getItem('respuesta2')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+1
@@ -56,6 +60,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta2= localStorage.getItem('respuesta3')
+      
       this.preguntas.push(parseInt(localStorage.getItem('respuesta3')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+2
@@ -72,6 +77,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta3= localStorage.getItem('respuesta4')
+      this.respuestas.push(localStorage.getItem('respuesta4'))
       this.preguntas.push(parseInt(localStorage.getItem('respuesta4')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+3
@@ -88,7 +94,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta4= localStorage.getItem('respuesta5')
-      this.preguntas.push(parseInt(localStorage.getItem('respuesta5')))
+      
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+4
         pregunta.idHistoria=data.contadorHistorias
@@ -104,6 +110,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta5= localStorage.getItem('respuesta6')
+      this.respuestas.push(localStorage.getItem('respuesta6'))
       this.preguntas.push(parseInt(localStorage.getItem('respuesta6')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+5
@@ -120,6 +127,7 @@ export class Prediccion2seccion2Component implements OnInit {
       })
 
       var respuesta6= localStorage.getItem('respuesta7')
+      
       this.preguntas.push(parseInt(localStorage.getItem('respuesta7')))
       this.AdminService.getContador().then(function(data){
         pregunta.idPregunta_Paciente=data.contadorPregunta_Paciente+6
@@ -170,6 +178,45 @@ export class Prediccion2seccion2Component implements OnInit {
       })
   }
 
+  prediccion():string{
+    var cont=0
+    var retorno
+    
+    
+        if(localStorage.getItem('respuesta2')==="1"){
+        
+          cont=cont+1
+        }
+        if(localStorage.getItem('respuesta3')==="1"){
+        
+          cont=cont+1
+        }
+        if(localStorage.getItem('respuesta4')==="1"){
+        
+          cont=cont+1
+        }
+        if(localStorage.getItem('respuesta6')==="1"){
+        
+          cont=cont+1
+        }
+        if(localStorage.getItem('respuesta7')==="1"){
+        
+          cont=cont+1
+        }
+      
+      console.log(cont)
+    
+    if(cont==5){
+      retorno="¡Has culminado el test de depresión!, y según lo que nos manifiestas es probable que padezcas un episodio depresivo en el trastorno bipolar."
+    }
+    else if(cont>2){
+      retorno="¡Has culminado el test de depresión!, y según lo que nos manifiestas padeces un posible o indicios de un estado de depresión."
+    }else{
+      retorno="¡Has culminado el test de depresión!, y según lo que nos manifiestas no se identifica algun indicio de depresión"
+    }
+
+    return retorno
+  }
   
   
 

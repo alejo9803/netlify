@@ -21,13 +21,15 @@ export class LoginComponent implements OnInit {
 
   pacientes : Paciente[];
   psicologos : Psicologo[];
+  inicio=true
 
   async login(form: NgForm){
+    var con=0
     await this.AdminService.getPacientes().then(pacientes => this.pacientes=pacientes)
     for(var i=0; i<this.pacientes.length;i++){
       if(form.value.password==this.pacientes[i].idPaciente && form.value.identificacion===this.pacientes[i].nombre){
         localStorage.setItem('email',form.value.password)
-        
+        con=1
         this.router.navigate(['/introduccion']);
         
       }
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
         for(var j=0; j<this.psicologos.length;j++){
           if(form.value.password==this.psicologos[j].idPsicologo && form.value.identificacion===this.psicologos[j].nombre){
             localStorage.setItem('email',form.value.password)
-            
+            con=1
             this.router.navigate(['/psicologo']);
             
 
@@ -44,6 +46,15 @@ export class LoginComponent implements OnInit {
         }
       }
     }
+    console.log(con)
+    if(con==0){
+      this.inicio=false
+    }
+  }
+
+  inicioMetodo():Boolean{
+    
+    return !this.inicio
   }
 
 

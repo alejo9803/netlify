@@ -1,0 +1,21 @@
+radio boton
+https://www.youtube.com/watch?v=LNjzzk9AL7k
+
+https://material-ui.com/es/components/radio-buttons/
+
+https://www.tutorialesprogramacionya.com/angularya/detalleconcepto.php?punto=39&codigo=39&inicio=20
+
+google suite inteligencia artificial
+
+https://docs.djangoproject.com/en/3.1/topics/db/queries/
+
+importante:
+https://www.youtube.com/watch?v=sxpWh7x7uoQ
+
+https://www.javaer101.com/es/article/43567110.html
+https://juliescript.dev/formularios-dinamicos-angular/#:~:text=Un%20FormArray%20es%20un%20arreglo,a%20modificar%20nuestro%20m%C3%A9todo%20crearFormulario%20.
+https://es.stackoverflow.com/questions/353127/error-cannot-find-control-with-name-angular-formarray
+https://www.it-swarm-es.com/es/angular/cuando-usar-formgroup-vs.-formarray/829015564/
+https://www.youtube.com/watch?v=IrSFDNMhZKU
+https://www.tutorialesprogramacionya.com/angularya/detalleconcepto.php?punto=87&codigo=87&inicio=80
+
